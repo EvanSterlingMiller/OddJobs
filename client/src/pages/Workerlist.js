@@ -3,6 +3,8 @@ import { Card } from 'react-bootstrap';
 import { useQuery } from '@apollo/client';
 import { GET_WORKERS } from '../utils/queries';
 import './workerlist.css';
+import image5 from '../images/usericon.png';
+
 
 const WorkerList = ({ state }) => {
   const { loading, error, data: workerData } = useQuery(GET_WORKERS, {
@@ -21,7 +23,7 @@ const WorkerList = ({ state }) => {
   const handlePhoneClick = (phone) => {
     window.location.href = `tel:${phone}`;
   };
-
+  let emailstr= 'Email: '
   return (
     <div>
       {workers.map((worker) => (
@@ -34,7 +36,7 @@ const WorkerList = ({ state }) => {
             <p>City: {worker.city}</p>
             <p>Rate($$) per hour: {worker.rate}</p>
             <p className="blueText">
-              Email:
+              {emailstr}
               <span
                 className="clickable"
                 onClick={() => handleEmailClick(worker.email)}
@@ -52,6 +54,11 @@ const WorkerList = ({ state }) => {
               </span>
             </p>
           </div>
+          <img
+            src={ image5 }
+            alt="Thumbnail"
+            className="thumbnailImage"
+          />
         </Card>
       ))}
     </div>

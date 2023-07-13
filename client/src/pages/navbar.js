@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './navbar.css';
 import Auth from '../utils/auth';
+import image from '../images/welder_52x52.png'
 
 const Navbar = () => {
   const logout = () => {
@@ -10,6 +11,7 @@ const Navbar = () => {
 
   return (
     <div className='navbar'>
+      <img src={image} alt='welderman' />
       <h1 className="header-oddjobs">Odd Jobs</h1>
       <div className="nav-links">
         <Link to="/">Home</Link>
